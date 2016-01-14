@@ -17,6 +17,11 @@ x.x.x Release notes (yyyy-MM-dd)
   properties.
 * Indexing `BOOL`/`Bool` and `NSDate` properties are now supported.
 * Swift: Add support for indexing optional properties.
+* Add `addNotificationBlock` to `RLMResults`, `Results`, `RLMArray`, and
+  `List`, which calls the given block whenever the collection changes.
+* Do a lot of the work for keeping `RLMResults`/`Results` up-to-date after
+  write transactions on a background thread to help avoid blocking the main
+  thread.
 
 ### Bugfixes
 
