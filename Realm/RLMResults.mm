@@ -198,7 +198,7 @@ static void throwError(NSString *aggregateMethod) {
     catch (realm::Results::InvalidatedException const&) {
         @throw RLMException(@"RLMResults has been invalidated");
     }
-    catch (realm::Results::DetatchedAccessorException const&) {
+    catch (realm::Results::DetachedAccessorException const&) {
         @throw RLMException(@"Object has been invalidated");
     }
     catch (realm::Results::IncorrectTableException const& e) {

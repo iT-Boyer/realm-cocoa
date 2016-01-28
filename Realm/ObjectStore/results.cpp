@@ -182,7 +182,7 @@ size_t Results::index_of(Row const& row)
 {
     validate_read();
     if (!row) {
-        throw DetatchedAccessorException{};
+        throw DetachedAccessorException{};
     }
     if (m_table && row.get_table() != m_table) {
         throw IncorrectTableException{

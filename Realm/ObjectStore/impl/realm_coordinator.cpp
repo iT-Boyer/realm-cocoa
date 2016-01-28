@@ -384,7 +384,7 @@ void RealmCoordinator::advance_helper_shared_group_to_latest()
 
     // Transfer all new queries over to the main SG
     for (auto& query : m_new_queries) {
-        query->detatch();
+        query->detach();
         query->attach_to(*m_query_sg);
     }
 

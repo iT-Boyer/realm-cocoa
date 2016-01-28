@@ -231,7 +231,7 @@ bool AsyncQuery::deliver(SharedGroup& sg, std::exception_ptr err)
         m_tv_handover->version = m_sg_version;
         Results::Internal::set_table_view(*m_target_results,
                                           std::move(*sg.import_from_handover(std::move(m_tv_handover))));
-        m_delievered_table_version = m_handed_over_table_version;
+        m_delivered_table_version = m_handed_over_table_version;
 
     }
     REALM_ASSERT(!m_tv_handover);
@@ -259,8 +259,8 @@ std::function<void (std::exception_ptr)> AsyncQuery::next_callback()
     std::lock_guard<std::mutex> callback_lock(m_callback_mutex);
     for (++m_callback_index; m_callback_index < m_callbacks.size(); ++m_callback_index) {
         auto& callback = m_callbacks[m_callback_index];
-        if (m_error || callback.delivered_version != m_delievered_table_version) {
-            callback.delivered_version = m_delievered_table_version;
+        if (m_error || callback.delivered_version != m_delivered_table_version) {
+            callback.delivered_version = m_delivered_table_version;
             return callback.fn;
         }
     }
@@ -278,7 +278,7 @@ void AsyncQuery::attach_to(realm::SharedGroup& sg)
     m_sg = &sg;
 }
 
-void AsyncQuery::detatch()
+void AsyncQuery::detach()
 {
     REALM_ASSERT(m_sg);
     REALM_ASSERT(m_query);

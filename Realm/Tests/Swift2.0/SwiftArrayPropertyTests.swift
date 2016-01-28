@@ -77,7 +77,7 @@ class SwiftArrayPropertyTests: RLMTestCase {
         }
     }
 
-    func testModifyDetatchedArray() {
+    func testModifyDetachedArray() {
         let realm = realmWithTestPath()
         realm.beginWriteTransaction()
         let arObj = SwiftArrayPropertyObject.createInRealm(realm, withValue: ["arrayObject", [], []])
@@ -190,7 +190,7 @@ class SwiftArrayPropertyTests: RLMTestCase {
         }
     }
 
-    func testModifyDetatchedArray_objc() {
+    func testModifyDetachedArray_objc() {
         let realm = realmWithTestPath()
         realm.beginWriteTransaction()
         let arObj = ArrayPropertyObject.createInRealm(realm, withValue: ["arrayObject", [], []])

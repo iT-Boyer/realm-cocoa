@@ -55,7 +55,7 @@
     }
 }
 
--(void)testModifyDetatchedArray {
+-(void)testModifyDetachedArray {
     RLMRealm *realm = [self realmWithTestPath];
 
     [realm beginWriteTransaction];

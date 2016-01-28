@@ -151,7 +151,7 @@ public:
     };
 
     // The input Row object is not attached
-    struct DetatchedAccessorException { };
+    struct DetachedAccessorException { };
 
     // The input Row object belongs to a different table
     struct IncorrectTableException {

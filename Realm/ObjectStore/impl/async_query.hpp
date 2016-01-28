@@ -55,7 +55,7 @@ public:
     void attach_to(SharedGroup& sg);
     // Create a new query handover object and stop using the previously attached
     // SharedGroup
-    void detatch();
+    void detach();
 
     Realm& get_realm() { return m_target_results->get_realm(); }
     // Get the version of the current handover object
@@ -97,7 +97,7 @@ private:
     SharedGroup* m_sg = nullptr;
 
     uint_fast64_t m_handed_over_table_version = -1;
-    uint_fast64_t m_delievered_table_version = -1;
+    uint_fast64_t m_delivered_table_version = -1;
 
     // Iteration variable for looping over callbacks
     // remove_callback() updates this when needed
